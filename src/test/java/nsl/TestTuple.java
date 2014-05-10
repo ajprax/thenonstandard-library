@@ -1,4 +1,4 @@
-package nsl.tuple;
+package nsl;
 
 import junit.framework.Assert;
 import nsl.Tuple.Tuple2;

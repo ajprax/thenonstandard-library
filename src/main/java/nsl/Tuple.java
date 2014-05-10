@@ -6,7 +6,12 @@ import com.google.common.base.Preconditions;
 /**
  * Contains implementations of generic tuple classes to provide toString, hashCode, and equals.
  *
- * To use, extend the tuple class of the appropriate size and add getter methods.
+ * <p>
+ *   Tuples are immutable and may not contain null values.
+ * </p>
+ * <p>
+ *   To use, extend the tuple class of the appropriate size and add getter methods.
+ * </p>
  */
 public class Tuple {
 
@@ -30,15 +35,17 @@ public class Tuple {
 
   public static class Tuple1<FIRST> {
     private static final String FORMAT = "(%s)";
+    private final String mToString;
     protected final FIRST mFirst;
     protected Tuple1(
         final FIRST first
     ) {
       mFirst = Preconditions.checkNotNull(first);
+      mToString = String.format(FORMAT, mFirst);
     }
     @Override
     public String toString() {
-      return String.format(FORMAT, mFirst);
+      return mToString;
     }
     @Override
     public int hashCode() {
@@ -58,6 +65,7 @@ public class Tuple {
 
   public static class Tuple2<FIRST, SECOND> {
     private static final String FORMAT = "(%s, %s)";
+    private final String mToString;
     protected final FIRST mFirst;
     protected final SECOND mSecond;
     protected Tuple2(
@@ -66,10 +74,11 @@ public class Tuple {
     ) {
       mFirst = Preconditions.checkNotNull(first);
       mSecond = Preconditions.checkNotNull(second);
+      mToString = String.format(FORMAT, mFirst, mSecond);
     }
     @Override
     public String toString() {
-      return String.format(FORMAT, mFirst, mSecond);
+      return mToString;
     }
     @Override
     public int hashCode() {
@@ -90,6 +99,7 @@ public class Tuple {
 
   public static class Tuple3<FIRST, SECOND, THIRD> {
     private static final String FORMAT = "(%s, %s, %s)";
+    private final String mToString;
     protected final FIRST mFirst;
     protected final SECOND mSecond;
     protected final THIRD mThird;
@@ -101,10 +111,11 @@ public class Tuple {
       mFirst = Preconditions.checkNotNull(first);
       mSecond = Preconditions.checkNotNull(second);
       mThird = Preconditions.checkNotNull(third);
+      mToString = String.format(FORMAT, mFirst, mSecond, mThird);
     }
     @Override
     public String toString() {
-      return String.format(FORMAT, mFirst, mSecond, mThird);
+      return mToString;
     }
     @Override
     public int hashCode() {
@@ -126,6 +137,7 @@ public class Tuple {
 
   public static class Tuple4<FIRST, SECOND, THIRD, FOURTH> {
     private static final String FORMAT = "(%s, %s, %s, %s)";
+    private final String mToString;
     protected final FIRST mFirst;
     protected final SECOND mSecond;
     protected final THIRD mThird;
@@ -140,10 +152,11 @@ public class Tuple {
       mSecond = Preconditions.checkNotNull(second);
       mThird = Preconditions.checkNotNull(third);
       mFourth = Preconditions.checkNotNull(fourth);
+      mToString = String.format(FORMAT, mFirst, mSecond, mThird, mFourth);
     }
     @Override
     public String toString() {
-      return String.format(FORMAT, mFirst, mSecond, mThird, mFourth);
+      return mToString;
     }
     @Override
     public int hashCode() {
@@ -166,6 +179,7 @@ public class Tuple {
 
   public static class Tuple5<FIRST, SECOND, THIRD, FOURTH, FIFTH> {
     private static final String FORMAT = "(%s, %s, %s, %s, %s)";
+    private final String mToString;
     protected final FIRST mFirst;
     protected final SECOND mSecond;
     protected final THIRD mThird;
@@ -183,10 +197,11 @@ public class Tuple {
       mThird = Preconditions.checkNotNull(third);
       mFourth = Preconditions.checkNotNull(fourth);
       mFifth = Preconditions.checkNotNull(fifth);
+      mToString = String.format(FORMAT, mFirst, mSecond, mThird, mFourth, mFifth);
     }
     @Override
     public String toString() {
-      return String.format(FORMAT, mFirst, mSecond, mThird, mFourth, mFifth);
+      return mToString;
     }
     @Override
     public int hashCode() {
@@ -210,6 +225,7 @@ public class Tuple {
 
   public static class Tuple6<FIRST, SECOND, THIRD, FOURTH, FIFTH, SIXTH> {
     private static final String FORMAT = "(%s, %s, %s, %s, %s, %s)";
+    private final String mToString;
     protected final FIRST mFirst;
     protected final SECOND mSecond;
     protected final THIRD mThird;
@@ -230,10 +246,11 @@ public class Tuple {
       mFourth = Preconditions.checkNotNull(fourth);
       mFifth = Preconditions.checkNotNull(fifth);
       mSixth = Preconditions.checkNotNull(sixth);
+      mToString = String.format(FORMAT, mFirst, mSecond, mThird, mFourth, mFifth, mSixth);
     }
     @Override
     public String toString() {
-      return String.format(FORMAT, mFirst, mSecond, mThird, mFourth, mFifth, mSixth);
+      return mToString;
     }
     @Override
     public int hashCode() {
@@ -258,6 +275,7 @@ public class Tuple {
 
   public static class Tuple7<FIRST, SECOND, THIRD, FOURTH, FIFTH, SIXTH, SEVENTH> {
     private static final String FORMAT = "(%s, %s, %s, %s, %s, %s, %s)";
+    private final String mToString;
     protected final FIRST mFirst;
     protected final SECOND mSecond;
     protected final THIRD mThird;
@@ -281,10 +299,11 @@ public class Tuple {
       mFifth = Preconditions.checkNotNull(fifth);
       mSixth = Preconditions.checkNotNull(sixth);
       mSeventh = Preconditions.checkNotNull(seventh);
+      mToString = String.format(FORMAT, mFirst, mSecond, mThird, mFourth, mFifth, mSixth, mSeventh);
     }
     @Override
     public String toString() {
-      return String.format(FORMAT, mFirst, mSecond, mThird, mFourth, mFifth, mSixth, mSeventh);
+      return mToString;
     }
     @Override
     public int hashCode() {
@@ -310,6 +329,7 @@ public class Tuple {
 
   public static class Tuple8<FIRST, SECOND, THIRD, FOURTH, FIFTH, SIXTH, SEVENTH, EIGHTH> {
     private static final String FORMAT = "(%s, %s, %s, %s, %s, %s, %s, %s)";
+    private final String mToString;
     protected final FIRST mFirst;
     protected final SECOND mSecond;
     protected final THIRD mThird;
@@ -336,11 +356,12 @@ public class Tuple {
       mSixth = Preconditions.checkNotNull(sixth);
       mSeventh = Preconditions.checkNotNull(seventh);
       mEighth = Preconditions.checkNotNull(eighth);
+      mToString = String.format(FORMAT, mFirst, mSecond, mThird, mFourth, mFifth, mSixth, mSeventh,
+          mEighth);
     }
     @Override
     public String toString() {
-      return String.format(FORMAT, mFirst, mSecond, mThird, mFourth, mFifth, mSixth, mSeventh,
-          mEighth);
+      return mToString;
     }
     @Override
     public int hashCode() {
@@ -367,6 +388,7 @@ public class Tuple {
 
   public static class Tuple9<FIRST, SECOND, THIRD, FOURTH, FIFTH, SIXTH, SEVENTH, EIGHTH, NINTH> {
     private static final String FORMAT = "(%s, %s, %s, %s, %s, %s, %s, %s, %s)";
+    private final String mToString;
     protected final FIRST mFirst;
     protected final SECOND mSecond;
     protected final THIRD mThird;
@@ -396,10 +418,13 @@ public class Tuple {
       mSeventh = Preconditions.checkNotNull(seventh);
       mEighth = Preconditions.checkNotNull(eighth);
       mNinth = Preconditions.checkNotNull(ninth);
+      mToString = String.format(FORMAT, mFirst, mSecond, mThird, mFourth, mFifth, mSixth, mSeventh,
+          mEighth, mNinth);
     }
     @Override
-    public String toString() { return String.format(FORMAT, mFirst, mSecond, mThird, mFourth,
-        mFifth, mSixth, mSeventh, mEighth, mNinth); }
+    public String toString() {
+      return mToString;
+    }
     @Override
     public int hashCode() {
       return Objects.hashCode(mFirst, mSecond, mThird, mFourth, mFifth, mSixth, mSeventh, mEighth,
@@ -428,6 +453,7 @@ public class Tuple {
   public static class Tuple10<FIRST, SECOND, THIRD, FOURTH, FIFTH, SIXTH, SEVENTH, EIGHTH, NINTH,
       TENTH> {
     private static final String FORMAT = "(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)";
+    private final String mToString;
     protected final FIRST mFirst;
     protected final SECOND mSecond;
     protected final THIRD mThird;
@@ -460,11 +486,12 @@ public class Tuple {
       mEighth = Preconditions.checkNotNull(eighth);
       mNinth = Preconditions.checkNotNull(ninth);
       mTenth = Preconditions.checkNotNull(tenth);
+      mToString = String.format(FORMAT, mFirst, mSecond, mThird, mFourth, mFifth, mSixth, mSeventh,
+          mEighth, mNinth, mTenth);
     }
     @Override
     public String toString() {
-      return String.format(FORMAT, mFirst, mSecond, mThird, mFourth, mFifth, mSixth, mSeventh,
-          mEighth, mNinth, mTenth);
+      return mToString;
     }
     @Override
     public int hashCode() {
